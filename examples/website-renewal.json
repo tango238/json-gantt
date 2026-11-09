@@ -1,0 +1,331 @@
+{
+  "$schema": "../schema/gantt.schema.json",
+  "version": 1,
+  "project": {
+    "name": "Webサイトリニューアル",
+    "description": "json-gantt のサンプルプロジェクト",
+    "calendar": {
+      "weekends": [
+        0,
+        6
+      ],
+      "holidays": [
+        "2026-11-03",
+        "2026-11-23"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "id": "3ea2dc45-e966-4541-a853-f1220b9801b2",
+      "name": "田中",
+      "color": "#E67E22"
+    },
+    {
+      "id": "86472a35-1a1e-434c-bddc-35aaef4ac07f",
+      "name": "佐藤",
+      "color": "#9B59B6"
+    },
+    {
+      "id": "c419e251-e6e8-4778-ab2c-789874933f3d",
+      "name": "鈴木",
+      "color": "#16A085"
+    },
+    {
+      "id": "3bed7933-19b7-4546-a720-541dd843277b",
+      "name": "高橋",
+      "color": "#2C3E50"
+    }
+  ],
+  "colorLabels": [
+    {
+      "id": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "name": "通常",
+      "color": "#4A90D9"
+    },
+    {
+      "id": "317f469d-f18f-4df7-842a-9ad2f1abe294",
+      "name": "重要",
+      "color": "#E74C3C"
+    },
+    {
+      "id": "0d42c60c-282a-4c0c-831e-4202b297a421",
+      "name": "リリース",
+      "color": "#27AE60"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "bbce926b-449d-4d58-b1f8-d1e038c1d14c",
+      "parentId": null,
+      "name": "1. 要件定義"
+    },
+    {
+      "id": "2166a847-dbeb-45b1-b687-57a712a3dc2e",
+      "parentId": "bbce926b-449d-4d58-b1f8-d1e038c1d14c",
+      "name": "ヒアリング・現状分析",
+      "start": "2026-11-02",
+      "end": "2026-11-05",
+      "progress": 100,
+      "hours": 24,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82"
+    },
+    {
+      "id": "546ce18a-54b1-461d-b4e6-8a616119298d",
+      "parentId": "bbce926b-449d-4d58-b1f8-d1e038c1d14c",
+      "name": "要件定義書の作成",
+      "start": "2026-11-06",
+      "end": "2026-11-11",
+      "progress": 100,
+      "hours": 32,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2"
+      ],
+      "colorLabelId": "317f469d-f18f-4df7-842a-9ad2f1abe294",
+      "dependencies": [
+        {
+          "predecessorId": "2166a847-dbeb-45b1-b687-57a712a3dc2e"
+        }
+      ]
+    },
+    {
+      "id": "356d825f-c078-4d00-9bcc-f4acc1fb987c",
+      "parentId": "bbce926b-449d-4d58-b1f8-d1e038c1d14c",
+      "name": "要件レビュー・合意",
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "progress": 100,
+      "hours": 4,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2"
+      ],
+      "colorLabelId": "317f469d-f18f-4df7-842a-9ad2f1abe294",
+      "dependencies": [
+        {
+          "predecessorId": "546ce18a-54b1-461d-b4e6-8a616119298d"
+        }
+      ]
+    },
+    {
+      "id": "04848e5e-f4ee-4394-9cea-0832ea99ac4c",
+      "parentId": null,
+      "name": "2. デザイン"
+    },
+    {
+      "id": "8c98398b-f060-417b-8ed5-4333c14e680f",
+      "parentId": "04848e5e-f4ee-4394-9cea-0832ea99ac4c",
+      "name": "ワイヤーフレーム",
+      "start": "2026-11-13",
+      "end": "2026-11-18",
+      "progress": 100,
+      "hours": 28,
+      "resourceIds": [
+        "86472a35-1a1e-434c-bddc-35aaef4ac07f"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "356d825f-c078-4d00-9bcc-f4acc1fb987c"
+        }
+      ]
+    },
+    {
+      "id": "85dcba37-20bc-40af-bd9b-a81870d55a37",
+      "parentId": "04848e5e-f4ee-4394-9cea-0832ea99ac4c",
+      "name": "UIデザイン",
+      "start": "2026-11-19",
+      "end": "2026-11-27",
+      "progress": 70,
+      "hours": 40,
+      "resourceIds": [
+        "86472a35-1a1e-434c-bddc-35aaef4ac07f"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "8c98398b-f060-417b-8ed5-4333c14e680f"
+        }
+      ],
+      "notes": "トップ・一覧・詳細の3テンプレート"
+    },
+    {
+      "id": "88d84013-192d-470d-a8d8-67fecbc3888a",
+      "parentId": "04848e5e-f4ee-4394-9cea-0832ea99ac4c",
+      "name": "デザインレビュー",
+      "start": "2026-11-30",
+      "end": "2026-11-30",
+      "progress": 0,
+      "hours": 4,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2",
+        "86472a35-1a1e-434c-bddc-35aaef4ac07f"
+      ],
+      "colorLabelId": "317f469d-f18f-4df7-842a-9ad2f1abe294",
+      "dependencies": [
+        {
+          "predecessorId": "85dcba37-20bc-40af-bd9b-a81870d55a37"
+        }
+      ]
+    },
+    {
+      "id": "d20477c2-4e4d-4b5e-8050-70e07712891e",
+      "parentId": null,
+      "name": "3. 開発"
+    },
+    {
+      "id": "9364f31c-1b08-4b1e-9705-6d8b88ed0868",
+      "parentId": "d20477c2-4e4d-4b5e-8050-70e07712891e",
+      "name": "フロントエンド"
+    },
+    {
+      "id": "6b538b03-8df3-4f87-a682-b1cb5269aa52",
+      "parentId": "9364f31c-1b08-4b1e-9705-6d8b88ed0868",
+      "name": "共通コンポーネント実装",
+      "start": "2026-11-19",
+      "end": "2026-11-26",
+      "progress": 80,
+      "hours": 40,
+      "resourceIds": [
+        "c419e251-e6e8-4778-ab2c-789874933f3d"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "8c98398b-f060-417b-8ed5-4333c14e680f"
+        }
+      ]
+    },
+    {
+      "id": "16b2d9ee-ef37-4cc5-a912-f1e5dbad715c",
+      "parentId": "9364f31c-1b08-4b1e-9705-6d8b88ed0868",
+      "name": "ページ実装",
+      "start": "2026-12-01",
+      "end": "2026-12-10",
+      "progress": 20,
+      "hours": 60,
+      "resourceIds": [
+        "c419e251-e6e8-4778-ab2c-789874933f3d"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "88d84013-192d-470d-a8d8-67fecbc3888a"
+        },
+        {
+          "predecessorId": "6b538b03-8df3-4f87-a682-b1cb5269aa52"
+        }
+      ]
+    },
+    {
+      "id": "4f4f995a-bf4b-4ab0-bb3b-a531900ca503",
+      "parentId": "d20477c2-4e4d-4b5e-8050-70e07712891e",
+      "name": "バックエンド"
+    },
+    {
+      "id": "7f0d141d-744f-40e4-9ce6-7e2475105081",
+      "parentId": "4f4f995a-bf4b-4ab0-bb3b-a531900ca503",
+      "name": "API設計",
+      "start": "2026-11-13",
+      "end": "2026-11-18",
+      "progress": 100,
+      "hours": 24,
+      "resourceIds": [
+        "3bed7933-19b7-4546-a720-541dd843277b"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "356d825f-c078-4d00-9bcc-f4acc1fb987c"
+        }
+      ]
+    },
+    {
+      "id": "91a8fab5-40d3-4c9f-a288-5625c4f3c904",
+      "parentId": "4f4f995a-bf4b-4ab0-bb3b-a531900ca503",
+      "name": "API実装",
+      "start": "2026-11-19",
+      "end": "2026-12-04",
+      "progress": 45,
+      "hours": 70,
+      "resourceIds": [
+        "3bed7933-19b7-4546-a720-541dd843277b"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "7f0d141d-744f-40e4-9ce6-7e2475105081"
+        }
+      ]
+    },
+    {
+      "id": "9bb2afb0-a856-446e-90f8-e9e80eb89fbe",
+      "parentId": null,
+      "name": "4. テスト・リリース"
+    },
+    {
+      "id": "371ed19d-4c24-4c50-9db2-c48edeeec3b1",
+      "parentId": "9bb2afb0-a856-446e-90f8-e9e80eb89fbe",
+      "name": "結合テスト",
+      "start": "2026-12-11",
+      "end": "2026-12-16",
+      "progress": 0,
+      "hours": 32,
+      "resourceIds": [
+        "c419e251-e6e8-4778-ab2c-789874933f3d",
+        "3bed7933-19b7-4546-a720-541dd843277b"
+      ],
+      "colorLabelId": "0efb55e6-99a1-4c35-8834-2c7d36a2cc82",
+      "dependencies": [
+        {
+          "predecessorId": "16b2d9ee-ef37-4cc5-a912-f1e5dbad715c"
+        },
+        {
+          "predecessorId": "91a8fab5-40d3-4c9f-a288-5625c4f3c904"
+        }
+      ]
+    },
+    {
+      "id": "245b5676-919d-4446-968a-4b32e54afe1a",
+      "parentId": "9bb2afb0-a856-446e-90f8-e9e80eb89fbe",
+      "name": "受け入れテスト",
+      "start": "2026-12-17",
+      "end": "2026-12-21",
+      "progress": 0,
+      "hours": 20,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2"
+      ],
+      "colorLabelId": "317f469d-f18f-4df7-842a-9ad2f1abe294",
+      "dependencies": [
+        {
+          "predecessorId": "371ed19d-4c24-4c50-9db2-c48edeeec3b1"
+        }
+      ]
+    },
+    {
+      "id": "a7cbcd91-e1f7-4f51-b487-f8ee4f346301",
+      "parentId": "9bb2afb0-a856-446e-90f8-e9e80eb89fbe",
+      "name": "本番リリース",
+      "start": "2026-12-22",
+      "end": "2026-12-22",
+      "progress": 0,
+      "hours": 4,
+      "resourceIds": [
+        "3ea2dc45-e966-4541-a853-f1220b9801b2",
+        "3bed7933-19b7-4546-a720-541dd843277b"
+      ],
+      "colorLabelId": "0d42c60c-282a-4c0c-831e-4202b297a421",
+      "dependencies": [
+        {
+          "predecessorId": "245b5676-919d-4446-968a-4b32e54afe1a"
+        }
+      ]
+    }
+  ],
+  "view": {
+    "zoom": "day"
+  }
+}
