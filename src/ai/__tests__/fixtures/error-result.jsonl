@@ -1,0 +1,1 @@
+{"type": "result", "subtype": "error_during_execution", "is_error": true, "duration_ms": 1234, "duration_api_ms": 1000, "num_turns": 1, "session_id": "bdd5bdc5-8d12-4181-b34a-e70717bf6318", "total_cost_usd": 0.01, "permission_denials": []}

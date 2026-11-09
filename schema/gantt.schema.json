@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:json-gantt:schema:gantt:1",
+  "title": "GanttDocument",
+  "description": "json-gantt のプロジェクトファイル (1 ファイル = 1 プロジェクト)。日付はすべて ISO 8601 の日付のみ (YYYY-MM-DD)、end は包含。未知のフィールドは許可され、アプリは読み書きで保持する。",
+  "type": "object",
+  "required": ["version", "project", "tasks"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": {
+      "description": "任意。エディタ補完用のスキーマ参照 (例: \"./gantt.schema.json\")。アプリは値を解釈せずそのまま保持する。",
+      "type": "string"
+    },
+    "version": {
+      "description": "ファイルフォーマットのバージョン。現行は 1。アプリより新しい値のファイルは開けない。",
+      "type": "integer",
+      "const": 1
+    },
+    "project": { "$ref": "#/$defs/project" },
+    "resources": {
+      "description": "プロジェクトのリソース (担当者) 一覧。タスクは resourceIds で参照する。省略時は空配列として扱う。",
+      "type": "array",
+      "items": { "$ref": "#/$defs/resource" }
+    },
+    "colorLabels": {
+      "description": "色ラベル一覧。タスクは colorLabelId で参照する。省略時は空配列として扱う。",
+      "type": "array",
+      "items": { "$ref": "#/$defs/colorLabel" }
+    },
+    "tasks": {
+      "description": "タスクのフラット配列。階層は parentId で表す。兄弟間の順序は配列内の相対順序。アプリは深さ優先の前順 (親の直後にその子孫が連続する並び) で書き出す。",
+      "type": "array",
+      "items": { "$ref": "#/$defs/task" }
+    },
+    "view": { "$ref": "#/$defs/view" }
+  },
+  "$defs": {
+    "uuid": {
+      "title": "Uuid",
+      "description": "UUID (8-4-4-4-12 の 16 進表記、大文字小文字は不問)。アプリが新規に生成する ID は UUID v4 (小文字)。",
+      "type": "string",
+      "pattern": "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$"
+    },
+    "date": {
+      "title": "IsoDate",
+      "description": "暦日 (YYYY-MM-DD)。時刻・タイムゾーンは持たない。",
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    },
+    "color": {
+      "title": "HexColor",
+      "description": "#RRGGBB 形式の色。",
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "project": {
+      "title": "Project",
+      "description": "プロジェクト情報。",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "description": "プロジェクト名。",
+          "type": "string"
+        },
+        "description": {
+          "description": "任意。プロジェクトの説明。",
+          "type": "string"
+        },
+        "calendar": { "$ref": "#/$defs/calendar" }
+      }
+    },
+    "calendar": {
+      "title": "Calendar",
+      "description": "任意。稼働日設定。省略時は全日稼働として期間計算・自動スケジューリングを行う。",
+      "type": "object",
+      "required": ["weekends", "holidays"],
+      "additionalProperties": true,
+      "properties": {
+        "weekends": {
+          "description": "非稼働の曜日 (0=日曜 ... 6=土曜)。例: [0, 6]。",
+          "type": "array",
+          "items": { "type": "integer", "minimum": 0, "maximum": 6 },
+          "uniqueItems": true,
+          "maxItems": 6
+        },
+        "holidays": {
+          "description": "非稼働の祝日・休日 (YYYY-MM-DD)。",
+          "type": "array",
+          "items": { "$ref": "#/$defs/date" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "resource": {
+      "title": "Resource",
+      "description": "リソース (担当者)。",
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "name": { "description": "表示名。", "type": "string" },
+        "color": { "$ref": "#/$defs/color" }
+      }
+    },
+    "colorLabel": {
+      "title": "ColorLabel",
+      "description": "色ラベル。タスクバーの色として使う。",
+      "type": "object",
+      "required": ["id", "name", "color"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "name": { "description": "ラベル名。", "type": "string" },
+        "color": { "$ref": "#/$defs/color" }
+      }
+    },
+    "dependency": {
+      "title": "Dependency",
+      "description": "FS (終了→開始) 依存。このタスク (後続) は predecessorId のタスク (先行) の終了後に開始する。制約: successor.start >= nextWorkingDay(predecessor.end + 1 + lag 暦日)。",
+      "type": "object",
+      "required": ["predecessorId"],
+      "additionalProperties": true,
+      "properties": {
+        "predecessorId": { "$ref": "#/$defs/uuid" },
+        "lag": {
+          "description": "任意。ラグ (暦日数、整数)。負値はリード。省略時は 0。",
+          "type": "integer",
+          "default": 0
+        }
+      }
+    },
+    "task": {
+      "title": "Task",
+      "description": "タスク。他のタスクから parentId で参照されるタスクは「親タスク」であり、start / end / progress / hours は子から導出されるため、ファイルに書かれていても無視される (アプリは書き出さない)。それ以外は「リーフタスク」であり start / end を必ず持つ (end のみ・start のみの場合は同日の 1 日タスクとして補完、両方欠けていれば読み込みエラー)。",
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "parentId": {
+          "description": "親タスクの id。ルートなら null (省略時も null)。",
+          "oneOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }]
+        },
+        "name": { "description": "タスク名。", "type": "string" },
+        "start": {
+          "description": "開始日 (包含)。リーフタスクのみ有効。親タスクでは導出されるので無視される。",
+          "$ref": "#/$defs/date"
+        },
+        "end": {
+          "description": "終了日 (包含、1 日タスクは start == end)。リーフタスクのみ有効。親タスクでは導出されるので無視される。",
+          "$ref": "#/$defs/date"
+        },
+        "progress": {
+          "description": "進捗率 (0-100 の整数)。リーフタスクのみ有効 (省略時 0)。親タスクでは子の工数加重平均として導出されるので無視される。",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "hours": {
+          "description": "任意。工数 (時間、0 以上)。リーフタスクのみ有効。親タスクでは子の合計として導出されるので無視される。",
+          "type": "number",
+          "minimum": 0
+        },
+        "resourceIds": {
+          "description": "割り当てリソースの id 一覧 (resources[].id を参照)。省略時は空配列。",
+          "type": "array",
+          "items": { "$ref": "#/$defs/uuid" },
+          "uniqueItems": true
+        },
+        "colorLabelId": {
+          "description": "任意。色ラベルの id (colorLabels[].id を参照)。",
+          "$ref": "#/$defs/uuid"
+        },
+        "dependencies": {
+          "description": "このタスクを後続とする FS 依存の一覧。省略時は空配列。",
+          "type": "array",
+          "items": { "$ref": "#/$defs/dependency" }
+        },
+        "notes": { "description": "任意。メモ。", "type": "string" }
+      }
+    },
+    "view": {
+      "title": "ViewSettings",
+      "description": "任意。表示状態 (ズーム、折りたたみ)。省略時は zoom=day、全展開。",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "zoom": {
+          "description": "タイムラインのズーム。",
+          "type": "string",
+          "enum": ["day", "week", "month"]
+        },
+        "collapsedTaskIds": {
+          "description": "折りたたまれている親タスクの id 一覧。",
+          "type": "array",
+          "items": { "$ref": "#/$defs/uuid" },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

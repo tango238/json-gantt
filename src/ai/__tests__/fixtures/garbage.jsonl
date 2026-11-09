@@ -1,0 +1,7 @@
+
+this is not json
+{"type":"future_event","x":1}
+{"type": "assistant", "parent_tool_use_id": "toolu_parent", "session_id": "bdd5bdc5-8d12-4181-b34a-e70717bf6318", "message": {"content": [{"type": "text", "text": "from a sub agent"}]}}
+[1,2,3]
+   
+{"type":"assistant","message":{"content":[{"type":"text","text":"ok"}

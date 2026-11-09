@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- macOS 風の角丸タイル（全体の約 80%） -->
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)"/>
+  <rect x="100" y="100" width="824" height="412" rx="186" fill="url(#sheen)"/>
+
+  <!-- 時間軸の目盛り -->
+  <g stroke="#ffffff" stroke-opacity="0.2" stroke-width="8" stroke-linecap="round">
+    <line x1="362" y1="236" x2="362" y2="788"/>
+    <line x1="512" y1="236" x2="512" y2="788"/>
+    <line x1="662" y1="236" x2="662" y2="788"/>
+  </g>
+
+  <!-- ガントバー（進捗の塗り分けつき） -->
+  <g>
+    <rect x="212" y="282" width="260" height="80" rx="40" fill="#ffffff"/>
+    <rect x="212" y="282" width="170" height="80" rx="40" fill="#BFDBFE"/>
+    <rect x="512" y="412" width="300" height="80" rx="40" fill="#ffffff"/>
+    <rect x="512" y="412" width="130" height="80" rx="40" fill="#BFDBFE"/>
+    <rect x="362" y="542" width="300" height="80" rx="40" fill="#ffffff"/>
+    <rect x="662" y="672" width="150" height="80" rx="40" fill="#FBBF24"/>
+  </g>
+
+  <!-- 依存関係（1 本目の終了 → 2 本目の開始） -->
+  <path d="M 472 322 L 492 322 L 492 452 L 506 452" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 500 420 L 540 452 L 500 484 Z" fill="#ffffff"/>
+</svg>

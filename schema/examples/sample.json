@@ -1,0 +1,548 @@
+{
+  "$schema": "../gantt.schema.json",
+  "version": 1,
+  "project": {
+    "name": "A Project Plan",
+    "description": "Sample project for json-gantt (2023-05-22 to 2023-06-02).",
+    "calendar": {
+      "weekends": [
+        0,
+        6
+      ],
+      "holidays": []
+    }
+  },
+  "resources": [
+    {
+      "id": "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de",
+      "name": "Vic",
+      "color": "#E67E22"
+    },
+    {
+      "id": "225f914e-b575-40fe-8dae-e79af48ef0d6",
+      "name": "Emma",
+      "color": "#9B59B6"
+    },
+    {
+      "id": "a1105b7d-4a4e-4ea5-8258-112bd09952b2",
+      "name": "Benjamin",
+      "color": "#16A085"
+    },
+    {
+      "id": "89a79ffd-567e-4a9c-8484-f09d5b6f4512",
+      "name": "Ava",
+      "color": "#D35400"
+    },
+    {
+      "id": "af080212-e29d-4ac1-ae8e-60096a9493d2",
+      "name": "William",
+      "color": "#2C3E50"
+    }
+  ],
+  "colorLabels": [
+    {
+      "id": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "name": "General",
+      "color": "#4A90D9"
+    },
+    {
+      "id": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "name": "Important",
+      "color": "#E74C3C"
+    },
+    {
+      "id": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "name": "Label3",
+      "color": "#27AE60"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "parentId": null,
+      "name": "A Project Plan",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "parentId": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "name": "Initiation",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "4652e672-a21d-4222-b9a9-56b4138ea105",
+      "parentId": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "name": "Define goals",
+      "start": "2023-05-22",
+      "end": "2023-05-22",
+      "progress": 100,
+      "hours": 8,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": []
+    },
+    {
+      "id": "6f4227a5-a29f-4bcc-8e53-6d80036d7448",
+      "parentId": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "name": "Identify stakeholders",
+      "start": "2023-05-22",
+      "end": "2023-05-22",
+      "progress": 100,
+      "hours": 6,
+      "resourceIds": [
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": []
+    },
+    {
+      "id": "46130482-076f-48fa-9cf5-77236d6176b3",
+      "parentId": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "name": "Kickoff meeting",
+      "start": "2023-05-23",
+      "end": "2023-05-23",
+      "progress": 100,
+      "hours": 4,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de",
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "4652e672-a21d-4222-b9a9-56b4138ea105"
+        }
+      ]
+    },
+    {
+      "id": "61d60219-a304-4a1f-a9fb-ed52bcb41705",
+      "parentId": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "name": "Draft project charter",
+      "start": "2023-05-23",
+      "end": "2023-05-23",
+      "progress": 100,
+      "hours": 8,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "6f4227a5-a29f-4bcc-8e53-6d80036d7448"
+        }
+      ]
+    },
+    {
+      "id": "508177f1-8489-401b-bdf6-e007b7716f1a",
+      "parentId": "1a95d41c-85fd-4bdf-af7a-0879532e40cc",
+      "name": "Set up workspace",
+      "start": "2023-05-22",
+      "end": "2023-05-23",
+      "progress": 100,
+      "hours": 8,
+      "resourceIds": [
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "dependencies": []
+    },
+    {
+      "id": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "parentId": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "name": "Planning",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "3cb7262e-83b4-4099-82fe-6b0098c072bb",
+      "parentId": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "name": "Requirements gathering",
+      "start": "2023-05-24",
+      "end": "2023-05-25",
+      "progress": 100,
+      "hours": 16,
+      "resourceIds": [
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "46130482-076f-48fa-9cf5-77236d6176b3"
+        }
+      ]
+    },
+    {
+      "id": "420fcad9-f963-45d0-b64f-70fab1b47b8e",
+      "parentId": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "name": "Scope definition",
+      "start": "2023-05-24",
+      "end": "2023-05-24",
+      "progress": 100,
+      "hours": 8,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "61d60219-a304-4a1f-a9fb-ed52bcb41705"
+        }
+      ]
+    },
+    {
+      "id": "2be156fe-048f-4a56-834b-59e979993055",
+      "parentId": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "name": "Work breakdown structure",
+      "start": "2023-05-25",
+      "end": "2023-05-25",
+      "progress": 80,
+      "hours": 8,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "420fcad9-f963-45d0-b64f-70fab1b47b8e"
+        }
+      ]
+    },
+    {
+      "id": "81187797-2172-43ee-8e15-603f17172ccd",
+      "parentId": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "name": "Risk assessment",
+      "start": "2023-05-24",
+      "end": "2023-05-25",
+      "progress": 75,
+      "hours": 12,
+      "resourceIds": [
+        "af080212-e29d-4ac1-ae8e-60096a9493d2"
+      ],
+      "colorLabelId": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "dependencies": [
+        {
+          "predecessorId": "61d60219-a304-4a1f-a9fb-ed52bcb41705"
+        }
+      ]
+    },
+    {
+      "id": "b6343c64-3bc3-4efd-9f3b-9580ec5a94d2",
+      "parentId": "97c9175f-9ccc-4fe0-a44a-f7ffaecd0e7b",
+      "name": "Budget estimate",
+      "start": "2023-05-25",
+      "end": "2023-05-25",
+      "progress": 60,
+      "hours": 6,
+      "resourceIds": [
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "420fcad9-f963-45d0-b64f-70fab1b47b8e"
+        }
+      ]
+    },
+    {
+      "id": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "parentId": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "name": "Design",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "a6a2a6f3-b740-4900-ae5f-26b6be5cd333",
+      "parentId": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "name": "Architecture design",
+      "start": "2023-05-26",
+      "end": "2023-05-29",
+      "progress": 60,
+      "hours": 16,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "3cb7262e-83b4-4099-82fe-6b0098c072bb"
+        }
+      ]
+    },
+    {
+      "id": "31caa716-7620-443e-bd3c-4214227a7121",
+      "parentId": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "name": "UI mockups",
+      "start": "2023-05-26",
+      "end": "2023-05-26",
+      "progress": 80,
+      "hours": 8,
+      "resourceIds": [
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "3cb7262e-83b4-4099-82fe-6b0098c072bb"
+        }
+      ]
+    },
+    {
+      "id": "d0d4b804-45bd-4d10-b1b7-6b8da293196b",
+      "parentId": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "name": "Database design",
+      "start": "2023-05-29",
+      "end": "2023-05-29",
+      "progress": 50,
+      "hours": 8,
+      "resourceIds": [
+        "af080212-e29d-4ac1-ae8e-60096a9493d2"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "31caa716-7620-443e-bd3c-4214227a7121"
+        }
+      ]
+    },
+    {
+      "id": "20016ead-0edb-4c5d-a6da-8604150ffc98",
+      "parentId": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "name": "Design review",
+      "start": "2023-05-30",
+      "end": "2023-05-30",
+      "progress": 0,
+      "hours": 4,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de",
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "a6a2a6f3-b740-4900-ae5f-26b6be5cd333"
+        }
+      ]
+    },
+    {
+      "id": "cfccc2f3-d802-4d2f-bbc0-43f7c31d1aa3",
+      "parentId": "8900e3d9-d2cd-4015-99cf-d207df0b6e09",
+      "name": "API specification",
+      "start": "2023-05-26",
+      "end": "2023-05-29",
+      "progress": 50,
+      "hours": 12,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2"
+      ],
+      "colorLabelId": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "dependencies": [
+        {
+          "predecessorId": "2be156fe-048f-4a56-834b-59e979993055"
+        }
+      ]
+    },
+    {
+      "id": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "parentId": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "name": "Development",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "99cf9e8d-28a3-4850-8733-b487f287dbc4",
+      "parentId": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "name": "Backend implementation",
+      "start": "2023-05-30",
+      "end": "2023-05-31",
+      "progress": 30,
+      "hours": 16,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "cfccc2f3-d802-4d2f-bbc0-43f7c31d1aa3"
+        }
+      ]
+    },
+    {
+      "id": "ad1ed63e-d342-4882-9e80-a0ea78a1eba6",
+      "parentId": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "name": "Frontend implementation",
+      "start": "2023-05-30",
+      "end": "2023-05-31",
+      "progress": 20,
+      "hours": 16,
+      "resourceIds": [
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "31caa716-7620-443e-bd3c-4214227a7121"
+        }
+      ]
+    },
+    {
+      "id": "5bcd22b4-cb57-4542-a1ab-698cdb788a9d",
+      "parentId": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "name": "Database setup",
+      "start": "2023-05-30",
+      "end": "2023-05-30",
+      "progress": 40,
+      "hours": 8,
+      "resourceIds": [
+        "af080212-e29d-4ac1-ae8e-60096a9493d2"
+      ],
+      "colorLabelId": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "dependencies": [
+        {
+          "predecessorId": "d0d4b804-45bd-4d10-b1b7-6b8da293196b"
+        }
+      ]
+    },
+    {
+      "id": "7a7589f0-11b8-4249-aa40-4a1b8c901e91",
+      "parentId": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "name": "Integration",
+      "start": "2023-06-01",
+      "end": "2023-06-01",
+      "progress": 0,
+      "hours": 8,
+      "resourceIds": [
+        "a1105b7d-4a4e-4ea5-8258-112bd09952b2",
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "99cf9e8d-28a3-4850-8733-b487f287dbc4"
+        }
+      ]
+    },
+    {
+      "id": "de91fa15-e01c-482e-aef0-63a8cfaf1b13",
+      "parentId": "b1eb85d9-bfdc-4fb2-8ae3-b9e9709d42a2",
+      "name": "Code review",
+      "start": "2023-06-01",
+      "end": "2023-06-01",
+      "progress": 0,
+      "hours": 4,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "ad1ed63e-d342-4882-9e80-a0ea78a1eba6"
+        }
+      ]
+    },
+    {
+      "id": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "parentId": "b8f04324-e69c-43b3-8436-d6c3b52b5083",
+      "name": "Testing & Release",
+      "resourceIds": [],
+      "dependencies": []
+    },
+    {
+      "id": "6261b1f1-898b-4407-a8a9-f3e978333369",
+      "parentId": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "name": "Test planning",
+      "start": "2023-05-31",
+      "end": "2023-05-31",
+      "progress": 50,
+      "hours": 4,
+      "resourceIds": [
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "20016ead-0edb-4c5d-a6da-8604150ffc98"
+        }
+      ]
+    },
+    {
+      "id": "240d10ed-10cd-47b2-9ede-8f3c8bf89f29",
+      "parentId": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "name": "System testing",
+      "start": "2023-06-02",
+      "end": "2023-06-02",
+      "progress": 0,
+      "hours": 8,
+      "resourceIds": [
+        "af080212-e29d-4ac1-ae8e-60096a9493d2"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "7a7589f0-11b8-4249-aa40-4a1b8c901e91"
+        }
+      ]
+    },
+    {
+      "id": "db460965-cca6-4b30-8eed-54d2451933bf",
+      "parentId": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "name": "User acceptance testing",
+      "start": "2023-06-02",
+      "end": "2023-06-02",
+      "progress": 0,
+      "hours": 6,
+      "resourceIds": [
+        "225f914e-b575-40fe-8dae-e79af48ef0d6"
+      ],
+      "colorLabelId": "6cc71b3d-805f-413d-9679-bee9cd4d5c93",
+      "dependencies": [
+        {
+          "predecessorId": "de91fa15-e01c-482e-aef0-63a8cfaf1b13"
+        }
+      ]
+    },
+    {
+      "id": "dd04848c-18c4-4160-9afb-ea11719e3900",
+      "parentId": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "name": "User documentation",
+      "start": "2023-06-01",
+      "end": "2023-06-02",
+      "progress": 0,
+      "hours": 8,
+      "resourceIds": [
+        "89a79ffd-567e-4a9c-8484-f09d5b6f4512"
+      ],
+      "colorLabelId": "3e053dd6-f034-4ca7-8118-6c9acd7d586f",
+      "dependencies": [
+        {
+          "predecessorId": "99cf9e8d-28a3-4850-8733-b487f287dbc4"
+        }
+      ]
+    },
+    {
+      "id": "a0fe04b4-b64e-4f2b-bacf-b5986a6e9e2d",
+      "parentId": "c712671b-ab02-4e80-8413-e51c518837bd",
+      "name": "Release preparation",
+      "start": "2023-06-02",
+      "end": "2023-06-02",
+      "progress": 0,
+      "hours": 4,
+      "resourceIds": [
+        "96f0705f-7fc8-40e1-9ca8-ffdfc21c36de"
+      ],
+      "colorLabelId": "86536ebb-c1e3-4b01-9c3c-308b3aa9f4bd",
+      "dependencies": [
+        {
+          "predecessorId": "6261b1f1-898b-4407-a8a9-f3e978333369"
+        }
+      ]
+    }
+  ],
+  "view": {
+    "zoom": "day",
+    "collapsedTaskIds": []
+  }
+}

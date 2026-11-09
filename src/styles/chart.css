@@ -1,0 +1,36 @@
+.chart-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: #fff;
+  /* font-family / colour / --row-hover come from constants.ts (set inline by ChartView). */
+  font-size: 12px;
+}
+.chart-grid svg {
+  user-select: none;
+}
+.chart-grid .row-bg[fill="transparent"]:hover {
+  fill: var(--row-hover);
+}
+.zoom-switch {
+  display: inline-flex;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.zoom-switch button {
+  border: 0;
+  border-right: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 3px 12px;
+  font: inherit;
+  cursor: pointer;
+  color: #1f2937;
+}
+.zoom-switch button:last-child {
+  border-right: 0;
+}
+.zoom-switch button.active {
+  background: #e3f0ff;
+  color: #1d4ed8;
+}
